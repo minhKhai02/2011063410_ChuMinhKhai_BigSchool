@@ -1,7 +1,41 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<_2011063410_ChuMinhKhai.Models.Course>
+@{
+    ViewBag.Title = "Home page";
+   
 }
-
+<div class="row">
+    <ul>
+        @foreach(var course in Model)
+            {
+                <li>
+                    @course.DateTime - @course.Lecturer.name
+                </li>
+            }
+    </ul>
+    <ul class="course">
+        @foreach(var course in Model)
+            {
+                <li>
+                    <div class="date">
+                        <div class="month">
+                            @course.DateTime.ToString("MM")
+                        </div>
+                        <div class="day">
+                            @course.DateTime.ToString("dd")
+                        </div>
+                    </div>
+                    <div class="details">
+                        <span class="lecture">
+                            @course.Lecturer.name
+                        </span>
+                        <span class="category">
+                            @course.Category.Name
+                        </span>
+                    </div>
+                </li>
+            }
+    </ul>
+</div>
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
         <h1 id="title">ASP.NET</h1>
@@ -31,3 +65,6 @@
         </section>
     </div>
 </main>
+
+
+
